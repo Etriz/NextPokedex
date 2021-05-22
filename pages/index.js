@@ -6,14 +6,19 @@ import Layout from '../components/Layout';
 
 export default function Home({ pokemon }) {
   // console.log(pokemon);
+  const paddedIndex = (index) => {
+    return `00${index + 1}`.slice(-3);
+  };
   return (
     <Layout title="NextPokedex">
-      {/* <StyledH1>NextJS Pokedex</StyledH1> */}
+      <StyledH1>NextJS Pokedex</StyledH1>
       {pokemon.map((poke, index) => (
-        <Link href={`/pokemon?id=${index + 1}`} key={index}>
+        <Link href={`/pokemon/${index + 1}`} key={index}>
           <StyledCard>
             <a>
-              <StyledImage src={poke.image} alt={poke.name} height="100px" />
+              <StyledImage src={poke.image} alt={poke.name} />
+              <br />
+              <span>{`${paddedIndex(index)}. ${poke.name}`}</span>
             </a>
           </StyledCard>
         </Link>
