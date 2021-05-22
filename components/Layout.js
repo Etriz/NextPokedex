@@ -4,7 +4,7 @@ import Head from 'next/head';
 
 const Layout = ({ title, children }) => {
   return (
-    <div style={{ background: 'lightgrey', margin: '0' }}>
+    <div style={{ margin: '0' }}>
       <Head>
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
