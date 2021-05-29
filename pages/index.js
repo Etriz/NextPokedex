@@ -3,22 +3,26 @@ import styled from 'styled-components';
 
 import Link from 'next/link';
 import Layout from '../components/Layout';
+import TypeSort from '../components/TypeSort';
+import capitalize from '../utils/capitalize';
 
 export default function Home({ pokemon }) {
   // console.log(pokemon);
+
   const paddedIndex = (index) => {
     return `00${index + 1}`.slice(-3);
   };
   return (
     <Layout title="NextPokedex">
       <StyledH1>NextJS Pokedex</StyledH1>
+      <TypeSort />
       {pokemon.map((poke, index) => (
         <Link href={`/pokemon/${index + 1}`} key={index}>
           <StyledCard>
             <a>
               <StyledImage src={poke.image} alt={poke.name} />
               <br />
-              <span>{`${paddedIndex(index)}. ${poke.name}`}</span>
+              <span>{`${paddedIndex(index)}. ${capitalize(poke.name)}`}</span>
             </a>
           </StyledCard>
         </Link>
@@ -27,7 +31,7 @@ export default function Home({ pokemon }) {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   const res = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=10`);
   const { results } = await res.data;
   const pokemon = results.map((poke, index) => {
@@ -51,11 +55,12 @@ const StyledH1 = styled.h1`
 `;
 const StyledCard = styled.div`
   background: #f4f4f4;
-  /* border: 1px solid black; */
+  border: 1px solid #f4f4f4;
   border-radius: 0.5rem;
   margin: 0.5rem;
   padding: 1rem;
   :hover {
+    border: 1px solid gray;
     cursor: pointer;
   }
 `;

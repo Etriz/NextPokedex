@@ -3,12 +3,9 @@ import axios from 'axios';
 import styled from 'styled-components';
 // import { useRouter } from 'next/router';
 import Layout from '../../components/Layout';
+import capitalize from '../../utils/capitalize';
 
 const pokemon = ({ data }) => {
-  const capitalize = (string) => {
-    return string[0].toUpperCase() + string.slice(1) + ' ';
-  };
-
   const name = capitalize(data.name);
   const image = data.sprites.other.dream_world.front_default;
   const { types } = data;
@@ -19,7 +16,7 @@ const pokemon = ({ data }) => {
       <StyledImage src={image} alt={name} />
       <StyledTypes>
         {types.map((type) => {
-          return capitalize(type.type.name);
+          return capitalize(type.type.name) + ' ';
         })}
       </StyledTypes>
     </Layout>
