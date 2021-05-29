@@ -4,10 +4,10 @@ import Layout from '../../components/Layout';
 import capitalize from '../../utils/capitalize';
 
 const type = ({ data }) => {
-  const name = data.name;
+  const pokemonName = data.name;
   return (
-    <Layout title={`NextPokedex - ${name}`}>
-      <div>{capitalize(data.name)}</div>
+    <Layout title={`NextPokedex - ${pokemonName}`}>
+      <div>{capitalize(pokemonName)}</div>
     </Layout>
   );
 };

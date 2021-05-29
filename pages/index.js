@@ -14,7 +14,6 @@ export default function Home({ pokemon }) {
   };
   return (
     <Layout title="NextPokedex">
-      <StyledH1>NextJS Pokedex</StyledH1>
       <TypeSort />
       {pokemon.map((poke, index) => (
         <Link href={`/pokemon/${index + 1}`} key={index}>
@@ -49,10 +48,6 @@ export async function getStaticProps() {
   };
 }
 
-const StyledH1 = styled.h1`
-  width: 100%;
-  text-align: center;
-`;
 const StyledCard = styled.div`
   background: #f4f4f4;
   border: 1px solid #f4f4f4;

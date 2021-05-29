@@ -9,13 +9,20 @@ const Layout = ({ title, children }) => {
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <StyledMain>{children}</StyledMain>
+      <StyledMain>
+        <StyledH1>NextJS Pokedex</StyledH1>
+        {children}
+      </StyledMain>
     </div>
   );
 };
 
 export default Layout;
 
+const StyledH1 = styled.h1`
+  width: 100%;
+  text-align: center;
+`;
 const StyledMain = styled.main`
   max-width: 900px;
   margin: 0 25%;
