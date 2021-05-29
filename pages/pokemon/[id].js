@@ -6,14 +6,14 @@ import Layout from '../../components/Layout';
 import capitalize from '../../utils/capitalize';
 
 const pokemon = ({ data }) => {
-  const name = capitalize(data.name);
+  const pokemonName = capitalize(data.name);
   const image = data.sprites.other.dream_world.front_default;
   const { types } = data;
 
   return (
-    <Layout title={`NextPokedex - ${name}`}>
-      <StyledH1>{name}</StyledH1>
-      <StyledImage src={image} alt={name} />
+    <Layout title={`NextPokedex - ${pokemonName}`}>
+      <StyledH1>{pokemonName}</StyledH1>
+      <StyledImage src={image} alt={pokemonName} />
       <StyledTypes>
         {types.map((type) => {
           return capitalize(type.type.name) + ' ';

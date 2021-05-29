@@ -4,10 +4,19 @@ import Layout from '../../components/Layout';
 import capitalize from '../../utils/capitalize';
 
 const type = ({ data }) => {
-  const pokemonName = data.name;
+  const typeName = capitalize(data.name);
+  const allOfType = data.pokemon;
+
+  const listAll = (arr) => {
+    return arr.map((item, index) => {
+      return <li key={index}>{capitalize(item.pokemon.name)}</li>;
+    });
+  };
+
   return (
-    <Layout title={`NextPokedex - ${pokemonName}`}>
-      <div>{capitalize(pokemonName)}</div>
+    <Layout title={`NextPokedex - ${typeName} Type`}>
+      <div>{typeName} Type Pokemon</div>
+      <ul>{listAll(allOfType)}</ul>
     </Layout>
   );
 };
