@@ -1,5 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 import axios from 'axios';
+import styled from 'styled-components';
 import Layout from '../../components/Layout';
 import capitalize from '../../utils/capitalize';
 
@@ -9,14 +11,18 @@ const type = ({ data }) => {
 
   const listAll = (arr) => {
     return arr.map((item, index) => {
-      return <li key={index}>{capitalize(item.pokemon.name)}</li>;
+      return  <Link href={`/pokemon/${item.pokemon.name}`} key={index}>
+        <StyledName>
+          {capitalize(item.pokemon.name)}
+        </StyledName>
+      </Link>
     });
   };
 
   return (
-    <Layout title={`NextPokedex - ${typeName} Type`}>
-      <div>{typeName} Type Pokemon</div>
-      <ul>{listAll(allOfType)}</ul>
+    <Layout title={`NextPokedex - ${typeName} Type`} flexDir='column'>
+      <StyledH3>{typeName} Type Pokemon</StyledH3>
+      <StyledNameContainer>{listAll(allOfType)}</StyledNameContainer>
     </Layout>
   );
 };
@@ -31,3 +37,27 @@ export const getServerSideProps = async ({ query }) => {
     props: { data },
   };
 };
+
+const StyledH3=styled.h3`
+  text-align:center;
+`
+const StyledNameContainer=styled.div`
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  justify-content:center;
+
+`
+const StyledName=styled.div`
+  text-align:center;
+  width:25%;
+  margin:.25rem;
+  padding:.5rem 0;
+  border:1px solid #00000000;
+  border-radius:.25rem;
+  background:#f4f4f4;
+  :hover{
+    cursor:pointer;
+    border:1px solid gray;
+  }
+`

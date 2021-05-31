@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
 
-const Layout = ({ title, children }) => {
+const Layout = ({ title, flexDir='row', children }) => {
   return (
     <div style={{ margin: '0' }}>
       <Head>
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <StyledMain>
+      <StyledMain flexDir={flexDir}>
         <StyledH1>NextJS Pokedex</StyledH1>
         {children}
       </StyledMain>
@@ -29,6 +29,6 @@ const StyledMain = styled.main`
   padding-bottom: 4rem;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: ${props=>props.flexDir};
   justify-content: center;
 `;

@@ -12,7 +12,7 @@ const TypeSort = () => {
     const res = await axios.get(`https://pokeapi.co/api/v2/type`);
     const results = await res.data.results;
     // console.log(`results`, results);
-    setTypes([...results]);
+    setTypes([...results.slice(0,-2)]);
   }, []);
 
   const sortButtons = () => {
