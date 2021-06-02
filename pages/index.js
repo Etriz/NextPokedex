@@ -31,7 +31,7 @@ export default function Home({ pokemon }) {
 }
 
 export async function getStaticProps() {
-  const res = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=10`);
+  const res = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=151`);
   const { results } = await res.data;
   const pokemon = results.map((poke, index) => {
     const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${
