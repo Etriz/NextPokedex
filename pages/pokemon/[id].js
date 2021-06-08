@@ -8,7 +8,10 @@ import capitalize from '../../utils/capitalize';
 
 const pokemon = ({ data }) => {
   const pokemonName = capitalize(data.name);
-  const image = data.sprites.other.dream_world.front_default;
+  const id = data.id;
+  let image =
+    data.sprites.other.dream_world.front_default ||
+    `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
   const { types } = data;
   const router = useRouter();
 
