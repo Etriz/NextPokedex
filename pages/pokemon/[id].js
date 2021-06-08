@@ -64,7 +64,7 @@ const StyledImage = styled.img`
   max-width: 250px;
 `;
 const StyledBack = styled.button`
-  width: 30%;
+  width: 20%;
   outline: none;
   border: 1px solid #00000000;
   border-radius: 0.5rem;
@@ -73,5 +73,9 @@ const StyledBack = styled.button`
   :hover {
     cursor: pointer;
     border: 1px solid gray;
+  }
+  @media screen and (max-width: 600px) {
+    width: 45%;
+    font-size: 1.5rem;
   }
 `;

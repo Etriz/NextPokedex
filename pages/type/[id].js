@@ -59,4 +59,8 @@ const StyledName = styled.div`
     cursor: pointer;
     border: 1px solid gray;
   }
+  @media screen and (max-width: 600px) {
+    width: 45%;
+    /* font-size: 1.25rem; */
+  }
 `;

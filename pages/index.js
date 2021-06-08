@@ -52,11 +52,16 @@ const StyledCard = styled.div`
   margin: 0.5rem;
   padding: 1rem;
   :hover {
+    box-shadow: 0.25rem 0.25rem 0.5rem gray;
     border: 1px solid gray;
     cursor: pointer;
   }
 `;
 const StyledImage = styled.img`
-  width: 150px;
-  height: 150px;
+  width: 10rem;
+  height: 10rem;
+  @media screen and (max-width: 600px) {
+    width: 15rem;
+    height: 15rem;
+  }
 `;

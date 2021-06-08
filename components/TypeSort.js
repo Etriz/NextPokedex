@@ -12,7 +12,7 @@ const TypeSort = () => {
     const res = await axios.get(`https://pokeapi.co/api/v2/type`);
     const results = await res.data.results;
     // console.log(`results`, results);
-    setTypes([...results.slice(0,-2)]);
+    setTypes([...results.slice(0, -2)]);
   }, []);
 
   const sortButtons = () => {
@@ -27,7 +27,8 @@ const TypeSort = () => {
 
   return (
     <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
-      <div>Sort by: </div>
+      <div>Filter by: </div>
+      <br />
       {sortButtons()}
     </div>
   );
@@ -39,10 +40,14 @@ const StyledButton = styled.button`
   width: 5rem;
   margin: 0.25rem;
   padding: 0.5rem;
-  border: 1px solid #00000000;
+  border: 1px solid rgba(255, 255, 255, 0);
   border-radius: 0.25rem;
   :hover {
     border: 1px solid gray;
     cursor: pointer;
+  }
+  @media screen and (max-width: 600px) {
+    width: 45%;
+    font-size: 1.5rem;
   }
 `;

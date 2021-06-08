@@ -25,8 +25,10 @@ export default Layout;
 const StyledH1 = styled.h1`
   width: 100%;
   text-align: center;
+  font-size: 2.5rem;
   :hover {
     cursor: pointer;
+    color: rgb(227, 53, 13);
   }
 `;
 const StyledMain = styled.main`
